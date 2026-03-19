@@ -2,7 +2,6 @@
   box-sizing: border-box;
 }
 
-
 body {
   margin: 0;
   width: 100vw;
@@ -15,8 +14,20 @@ body {
 
 .app {
   padding: 16px;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
 }
 
+#timer {
+  font-size: 50px;
+}
+
+.button-container {
+  gap: 10px;
+  justify-content: center;
+  display:flex;
+}
 button,
 input,
 textarea,

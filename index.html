@@ -7,10 +7,13 @@
   </head>
 
   <body>
-    <div class="app" nameClass = "text-center">
+    <div class="app">
       <p>Pomodoro Timer</p>
-      <button id="testBtn1" nameClass = "color:blue">Start</button>
-      <button id="testBtn2">Restart</button>
+      <p id = "timer">25:00</p>
+      <div class = "button-container">
+      <button id="startButton" onclick = "toggleTimer()">Start</button>
+      <button id="restartButton">Restart</button>
+      </div>
     </div>
 
     <script src="script.js"></script>
