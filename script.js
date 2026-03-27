@@ -16,8 +16,7 @@ function toggleTimer() {
       let minutes = Math.floor(time / 60);
       let seconds = time % 60;
 
-      document.getElementById("timer").textContent =
-        `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+      updateDisplay();
 
       if (time <= 0) {
         clearInterval(interval);
@@ -32,4 +31,28 @@ function toggleTimer() {
     button.textContent = "Start";
     clearInterval(interval);
   }
+}
+
+function updateDisplay() {
+  let minutes = Math.floor(time / 60);
+  let seconds = time % 60;
+
+  document.getElementById("timer").textContent =
+    `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+}
+
+function restartTimer() {
+
+  const startButton = document.getElementById("startButton");
+
+  clearInterval(interval)
+  interval = null;
+
+  time = 25 * 60;
+  running = false;
+
+  startButton.textContent = "Start";
+
+  updateDisplay();
+    
 }
