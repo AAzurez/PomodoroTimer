@@ -2,6 +2,14 @@ let time = 25 * 60;
 let interval = null;
 let running = false;
 
+const progressArc = document.getElementById("progressArc");
+const totalTime = 25 * 60;
+
+const arcLength = progressArc.getTotalLength();
+
+progressArc.style.strokeDasharray = arcLength;
+progressArc.style.strokeDashoffset = 0;
+
 function toggleTimer() {
   const button = document.getElementById("startButton");
 
@@ -34,11 +42,16 @@ function toggleTimer() {
 }
 
 function updateDisplay() {
+
   let minutes = Math.floor(time / 60);
   let seconds = time % 60;
 
   document.getElementById("timer").textContent =
     `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+
+  // progress animation
+  let progress = time / totalTime;
+  progressArc.style.strokeDashoffset = arcLength * (1 - progress);
 }
 
 function restartTimer() {
@@ -54,5 +67,5 @@ function restartTimer() {
   startButton.textContent = "Start";
 
   updateDisplay();
-    
+  progressArc.style.strokeDashoffset = 0;
 }
